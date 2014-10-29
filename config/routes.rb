@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  get '/about' => 'static_pages#about', as: :about
+
+  root 'static_pages#index', as: :home
   resources :artwork_iterations
   devise_for :users
   devise_for :admin_users, ActiveAdmin::Devise.config
