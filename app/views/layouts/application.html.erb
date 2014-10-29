@@ -8,6 +8,14 @@
 </head>
 <body>
 
+<% unless user_signed_in? %> 
+	<%= link_to 'sign in', new_user_session_path %>
+	<%= link_to 'sign up', new_user_registration_path %>
+<%else%>
+	<%= link_to 'upload art', '/artwork_iterations/new' %>
+<%end%>
+<hr>
+
 <%= yield %>
 
 </body>

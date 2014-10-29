@@ -29,10 +29,10 @@ class ArtworkIterationsController < ApplicationController
     respond_to do |format|
       if @artwork_iteration.save
         format.html { redirect_to @artwork_iteration, notice: 'Artwork iteration was successfully created.' }
-        format.json { render :show, status: :created, location: @artwork_iteration }
+        # format.json { render :show, status: :created, location: @artwork_iteration }
       else
         format.html { render :new }
-        format.json { render json: @artwork_iteration.errors, status: :unprocessable_entity }
+        # format.json { render json: @artwork_iteration.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -43,10 +43,10 @@ class ArtworkIterationsController < ApplicationController
     respond_to do |format|
       if @artwork_iteration.update(artwork_iteration_params)
         format.html { redirect_to @artwork_iteration, notice: 'Artwork iteration was successfully updated.' }
-        format.json { render :show, status: :ok, location: @artwork_iteration }
+        # format.json { render :show, status: :ok, location: @artwork_iteration }
       else
         format.html { render :edit }
-        format.json { render json: @artwork_iteration.errors, status: :unprocessable_entity }
+        # format.json { render json: @artwork_iteration.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -57,7 +57,7 @@ class ArtworkIterationsController < ApplicationController
     @artwork_iteration.destroy
     respond_to do |format|
       format.html { redirect_to artwork_iterations_url, notice: 'Artwork iteration was successfully destroyed.' }
-      format.json { head :no_content }
+      # format.json { head :no_content }
     end
   end
 
@@ -69,6 +69,6 @@ class ArtworkIterationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def artwork_iteration_params
-      params.require(:artwork_iteration).permit(:title, :description, :image)
+      params.require(:artwork_iteration).permit(:name, :description, :image)
     end
 end

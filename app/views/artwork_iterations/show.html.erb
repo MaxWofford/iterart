@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 <%= image_tag @artwork_iteration.image.url %>
+<h1><%= @artwork_iteration.name %></h1>
+<p><%= @artwork_iteration.description %></p>
 
 <%= link_to 'Edit', edit_artwork_iteration_path(@artwork_iteration) %> |
 <%= link_to 'Back', artwork_iterations_path %>
