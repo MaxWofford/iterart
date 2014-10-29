@@ -31,6 +31,11 @@ gem 'devise'
 # Admin dashboard
 gem 'activeadmin', github: 'activeadmin', ref: '05778f4'
 
+# For file upload
+gem 'paperclip', github: 'thoughtbot/paperclip'
+# AWS for image hosting
+gem 'aws-sdk'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
