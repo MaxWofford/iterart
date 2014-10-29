@@ -3,6 +3,7 @@ class CreateArtworkIterations < ActiveRecord::Migration
     create_table :artwork_iterations do |t|
       t.string :name
       t.text :description
+      t.text :token
 
       t.timestamps
     end
