@@ -4,6 +4,7 @@ class CreateArtworkIterations < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.text :token
+      # t.integer :user_id
 
       t.timestamps
     end
