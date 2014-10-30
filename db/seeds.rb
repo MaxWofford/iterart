@@ -7,4 +7,5 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.create!(:email => 'test@example.com', :password => 'password', :password_confirmation => 'password')
-ArtworkIteration.create!(:user_id => User.first.id, :name => 'I\'m a name')
+Project.create!(:user_id => User.first.id, :name => 'fettered-fox')
+ArtworkIteration.create!(:user_id => User.first.id, :project_id => Project.first.id, :name => 'I\'m a name')
