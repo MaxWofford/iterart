@@ -2,6 +2,6 @@
 <h1><%= @artwork_iteration.name %></h1>
 <p><%= @artwork_iteration.description %></p>
 
-<% if current_user.id == @artwork_iteration.user_id %>
-	<%= link_to 'Edit', edit_artwork_iteration_path(@artwork_iteration) %>
+<% if user_signed_in? && current_user.id == @artwork_iteration.user_id %>
+  <%= link_to 'Edit', edit_artwork_iteration_path(@artwork_iteration) %>
 <% end %>
