@@ -69,6 +69,6 @@ class ArtworkIterationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def artwork_iteration_params
-      params.require(:artwork_iteration).permit(:name, :description, :image)
+      params.require(:artwork_iteration).permit(:name, :description, :image, :user_id)
     end
 end
