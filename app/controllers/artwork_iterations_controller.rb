@@ -1,6 +1,5 @@
 class ArtworkIterationsController < ApplicationController
   before_action :set_artwork_iteration, only: [:show, :edit, :update, :destroy]
-
   # GET /artwork_iterations
   # GET /artwork_iterations.json
   def index
@@ -25,6 +24,7 @@ class ArtworkIterationsController < ApplicationController
   # POST /artwork_iterations.json
   def create
     @artwork_iteration = ArtworkIteration.new(artwork_iteration_params)
+    @artwork_iteration.user_id = current_user.id
 
     respond_to do |format|
       if @artwork_iteration.save
