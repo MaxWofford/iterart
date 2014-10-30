@@ -3,5 +3,6 @@
 <h1><%= @artwork_iteration.name %></h1>
 <p><%= @artwork_iteration.description %></p>
 
-<%= link_to 'Edit', edit_artwork_iteration_path(@artwork_iteration) %> |
-<%= link_to 'Back', artwork_iterations_path %>
+<% if current_user.id == @artwork_iteration.user_id %>
+	<%= link_to 'Edit', edit_artwork_iteration_path(@artwork_iteration) %>
+<% end %>
