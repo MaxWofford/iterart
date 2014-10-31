@@ -2,7 +2,7 @@
 <div class="fluid-container">
   <div class="row">
     <% @artwork_iterations.each do |artwork_iteration| %>
-      <div class="col-md-3"><%= image_tag artwork_iteration.image.url(:medium) %></div>
+      <div class="col-md-3"><%= link_to "project", artwork_iteration.project %> <%= image_tag artwork_iteration.image.url(:medium) %></div>
     <% end %>
   </div>
 </div>
