@@ -40,6 +40,8 @@ group :development do
 end
 
 group :production do
+  # Heroku precompile assets
+  gem 'rails_12factor'
   # AWS for image hosting
   gem 'aws-sdk'
   gem 'pg'
