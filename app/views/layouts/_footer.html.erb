@@ -1,4 +1,5 @@
 <% if Rails.env.development? %>
   <hr>
   <p class="alert alert-info">You are in development mode!</p>
+  <p>Page Rendered in <%= sprintf('%.3f', (Time.now.usec - @start_time).abs / 100.0) %> milliseconds</p>
 <% end %>
