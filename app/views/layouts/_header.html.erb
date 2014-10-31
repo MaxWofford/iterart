@@ -1,6 +1,39 @@
-<% unless user_signed_in? %> 
-<%= link_to 'sign in', new_user_session_path %>
-<%= link_to 'sign up', new_user_registration_path %>
-<%else%>
-<%= link_to 'upload art', '/artwork_iterations/new' %> 
-<%end%>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!-- <a class="navbar-brand" href="#">Project name</a> -->
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <!-- <li><a href="#">Link</a></li> -->
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% unless user_signed_in? %> 
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sign in/up <span class="caret"></span></a>
+            <ul class="dropdown-menu container-fluid" role="menu">
+              <!-- <div class="container-fluid"> -->
+                <!-- <div class="row"> -->
+                  <!-- <div class="col-md-12"> -->
+                    <%= render 'layouts/signin' %>
+                    <%= render 'layouts/signup' %>
+                  <!-- </div> -->
+                <!-- </div> -->
+              <!-- </div> -->
+            </ul>
+          </li>
+        <%else%>
+          <li>
+            <%= link_to 'New Project', '/artwork_iterations/new' %> 
+          </li>
+        <%end%>
+      </ul>
+    </div>
+  </div>
+</nav>
