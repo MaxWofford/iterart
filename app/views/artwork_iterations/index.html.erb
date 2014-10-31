@@ -1,23 +1,8 @@
 <h1>Listing artwork_iterations</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="fluid-container">
+  <div class="row">
     <% @artwork_iterations.each do |artwork_iteration| %>
-      <tr>
-        <td><%= link_to 'Show', artwork_iteration %></td>
-        <td><%= link_to 'Edit', edit_artwork_iteration_path(artwork_iteration) %></td>
-        <td><%= link_to 'Destroy', artwork_iteration, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="col-md-3"><%= image_tag artwork_iteration.image.url(:medium) %></div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Artwork iteration', new_artwork_iteration_path %>
+  </div>
+</div>
