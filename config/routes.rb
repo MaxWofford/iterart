@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root 'static_pages#index', as: :home
   resources :artwork_iterations
-  resources :projects, only: [:index, :show]
+  resources :projects, only: [:index, :show, :edit]
   devise_for :users
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
