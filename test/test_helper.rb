@@ -7,8 +7,12 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  def sample_file(filename = "sample_file.jpg")
+    File.new("test/fixtures/#{filename}")
+  end
 end
 class ActionController::TestCase
   include Devise::TestHelpers
 end
+
 
