@@ -1,0 +1,6 @@
+<h1><%= @user.email %>'s Profile</h1>
+<% if @projects %>
+  <% @projects.each do |project| %>
+    <%= image_tag project.artwork_iterations.last.image.url %>
+  <% end %>
+<% end %>
