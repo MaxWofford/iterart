@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create!(:email => 'test@example.com', :password => 'password', :password_confirmation => 'password')
-Project.create!(:user_id => User.first.id, :name => 'fettered-fox')
-ArtworkIteration.create!(:user_id => User.first.id, :project_id => Project.first.id, :name => 'I\'m a name')
+(0..100).each do |i|
+  @user = User.create!(:email => "test#{i}@example.com", :password => 'password', :password_confirmation => 'password')
+  ArtworkIteration.create!(:user_id => @user.id, :name => "Artwork #{i}")
+end
