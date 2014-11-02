@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   get '/about' => 'static_pages#about', as: :about
-
+  get 'users/:id' => 'users#show'
   root 'static_pages#index', as: :home
   resources :artwork_iterations
   resources :projects, only: [:index, :show, :edit]
