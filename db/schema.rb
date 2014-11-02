@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20141030183517) do
 
   create_table "projects", force: true do |t|
     t.text     "name"
+    t.boolean  "in_progress"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
