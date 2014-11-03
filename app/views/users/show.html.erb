@@ -1,13 +1,26 @@
+<% title "#{@user.email}" %>
 <h1><%= @user.email %>'s Profile</h1>
 <% if @wip.any? %>
-  <h2>Works in Progress</h2>
-  <% @wip.each do |project| %>
-    <%= image_tag project.artwork_iterations.last.image.url %>
-  <% end %>
+<h2>Works in Progress</h2>
+<div class="container-fluid">
+  <div class="row">
+    <% @wip.each do |project| %>
+    <div class="col-sm-12 col-md-2 no-gutter">
+      <%= image_tag project.artwork_iterations.last.image.url(:medium), class: 'img-responsive' %>
+    </div>
+    <% end %>
+  </div>
+</div>
 <% end %>
 <% if @projects %>
-  <h2>Projects</h2>
-  <% @projects.each do |project| %>
-    <%= image_tag project.artwork_iterations.last.image.url %>
-  <% end %>
+<h2>Projects</h2>
+<div class="container-fluid">
+  <div class="row">
+    <% @projects.each do |project| %>
+    <div class="col-md-2 no-gutter">
+      <%= image_tag project.artwork_iterations.last.image.url(:medium), class: 'img-responsive' %>
+    </div>
+    <% end %>
+  </div>
+</div>
 <% end %>
