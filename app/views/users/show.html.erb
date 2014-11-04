@@ -6,7 +6,12 @@
   <div class="row">
     <% @wip.each do |project| %>
     <div class="col-sm-12 col-md-2 no-gutter">
-      <%= image_tag project.artwork_iterations.last.image.url(:medium), class: 'img-responsive' %>
+      <%= link_to("/artwork_iterations/#{project.artwork_iterations.last.id}", title: project.artwork_iterations.last.name, 
+        rel: 'tooltip', relative: true) do %>
+        <%= image_tag(project.artwork_iterations.last.image.url(:medium), 
+        alt: "#{project.artwork_iterations.last.name} by #{current_user.id}",
+        class: 'img-responsive') %>
+      <% end %>
     </div>
     <% end %>
   </div>
