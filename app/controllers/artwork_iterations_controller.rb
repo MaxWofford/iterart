@@ -2,7 +2,6 @@ class ArtworkIterationsController < ApplicationController
   before_action :set_artwork_iteration, only: [:show, :edit, :update, :destroy]
 
   # GET /artwork_iterations/1
-  # GET /artwork_iterations/1.json
   def show
   end
 
@@ -16,7 +15,6 @@ class ArtworkIterationsController < ApplicationController
   end
 
   # POST /artwork_iterations
-  # POST /artwork_iterations.json
   def create
     @artwork_iteration = ArtworkIteration.new(artwork_iteration_params)
     @artwork_iteration.user_id = current_user.id
@@ -24,35 +22,28 @@ class ArtworkIterationsController < ApplicationController
     respond_to do |format|
       if @artwork_iteration.save
         format.html { redirect_to @artwork_iteration, notice: 'Artwork iteration was successfully created.' }
-        # format.json { render :show, status: :created, location: @artwork_iteration }
       else
         format.html { render :new }
-        # format.json { render json: @artwork_iteration.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # PATCH/PUT /artwork_iterations/1
-  # PATCH/PUT /artwork_iterations/1.json
   def update
     respond_to do |format|
       if @artwork_iteration.update(artwork_iteration_params)
         format.html { redirect_to @artwork_iteration, notice: 'Artwork iteration was successfully updated.' }
-        # format.json { render :show, status: :ok, location: @artwork_iteration }
       else
         format.html { render :edit }
-        # format.json { render json: @artwork_iteration.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /artwork_iterations/1
-  # DELETE /artwork_iterations/1.json
   def destroy
     @artwork_iteration.destroy
     respond_to do |format|
       format.html { redirect_to artwork_iterations_url, notice: 'Artwork iteration was successfully destroyed.' }
-      # format.json { head :no_content }
     end
   end
 
