@@ -5,4 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :artwork_iterations
   has_many :projects
+
+  validates :username, presence: true
+  validates :username, uniqueness: true, if: -> { self.username.present? }
+  validates :username, length: { minimum: 5, maximum: 20 }
 end

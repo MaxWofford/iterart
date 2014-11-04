@@ -9,7 +9,7 @@
 case Rails.env
 when "development"
   (0..3).each do |i|
-    @user = User.create!(:email => "test#{i}@example.com", :password => 'password', :password_confirmation => 'password')
+    @user = User.create!(username: "user#{i}", email: "test#{i}@example.com", password: 'password', password_confirmation: 'password')
     (0..[*1..25].sample).each do |n|
       @image = File.new("#{Rails.root}/app/assets/images/seed/development/sample_image_#{[*1..9].sample}.jpg")
       @art = ArtworkIteration.create!(user_id: @user.id, name: "Artwork #{i}-#{n}", image: @image)
