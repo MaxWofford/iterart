@@ -1,10 +1,5 @@
 class ArtworkIterationsController < ApplicationController
   before_action :set_artwork_iteration, only: [:show, :edit, :update, :destroy]
-  # GET /artwork_iterations
-  # GET /artwork_iterations.json
-  def index
-    @artwork_iterations = ArtworkIteration.all
-  end
 
   # GET /artwork_iterations/1
   # GET /artwork_iterations/1.json

@@ -1,0 +1,14 @@
+<% title "#{@project.name}" %>
+
+<h1><%= @project.name %></h1>
+
+<% @project.artwork_iterations.each do |iteration| %>
+  <%= image_tag iteration.image.url %>
+  <h1><%= iteration.name %></h1>
+  <p><%= iteration.description %></p>
+  <hr>
+<% end %>
+
+<% if user_signed_in? && current_user.id == @project.user_id %>
+  <%= link_to 'New Iteration', new_artwork_iteration_path(@project) %>
+<% end %>
