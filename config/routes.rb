@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
 
-  get '/about' => 'static_pages#about', as: :about
-  get 'users/:id' => 'users#show'
-  root 'static_pages#index', as: :home
   resources :artwork_iterations
   resources :projects, only: [:index, :show, :edit]
   devise_for :users
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+  get 'users/:id' => 'users#show'
+  root 'static_pages#index', as: :home
+  get '/about' => 'static_pages#about', as: :about
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
