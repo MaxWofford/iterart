@@ -9,7 +9,7 @@
       <%= link_to("/artwork_iterations/#{project.artwork_iterations.last.id}", title: project.artwork_iterations.last.name, 
         rel: 'tooltip', relative: true) do %>
         <%= image_tag(project.artwork_iterations.last.image.url(:medium), 
-        alt: "#{project.artwork_iterations.last.name} by #{current_user.id}",
+        alt: "#{project.artwork_iterations.last.name} by #{project.artwork_iterations.last.user.username}",
         class: 'img-responsive') %>
       <% end %>
     </div>
