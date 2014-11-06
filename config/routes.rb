@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :artwork_iterations
   resources :projects, only: [:index, :show, :edit]
+  resources :artwork_iterations do
+    resources :comments
+  end
   devise_for :users
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

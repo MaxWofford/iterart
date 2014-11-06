@@ -2,6 +2,34 @@
 <h1><%= @artwork_iteration.name %></h1>
 <p><%= @artwork_iteration.description %></p>
 
+<!-- User Feedback -->
+<h2>Comments</h2>
+<% @artwork_iteration.comments.each do |comment| %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= User.where(id: comment.user_id).first.username %>
+  </p>
+ 
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+<% end %>
+
+<!-- Submit feedback -->
+<% if user_signed_in? %>
+  <h2>Add a comment:</h2>
+  <%= form_for([@artwork_iteration, @artwork_iteration.comments.create]) do |f| %>
+    <p>
+      <%= f.label :body %><br>
+      <%= f.text_area :body %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>
+<% end %>
+
 <% if user_signed_in? && current_user.id == @artwork_iteration.user_id %>
-  <%= link_to 'Edit', edit_artwork_iteration_path(@artwork_iteration) %>
+<%= link_to 'Edit', edit_artwork_iteration_path(@artwork_iteration) %>
 <% end %>

@@ -5,11 +5,11 @@ class ArtworkIterationsControllerTest < ActionController::TestCase
     @artwork_iteration = artwork_iterations(:one)
   end
 
-  # test "should get index" do
-  #   get :index
-  #   assert_response :success
-  #   assert_not_nil assigns(:artwork_iterations)
-  # end
+  test "should get index" do
+    get :index
+    assert_response :success
+    assert_not_nil assigns(:artwork_iterations)
+  end
 
   test "should get new" do
     get :new

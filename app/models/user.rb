@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :artwork_iterations
   has_many :projects
+  has_many :comments
 
   validates :username, presence: true
   validates :username, uniqueness: true, if: -> { self.username.present? }

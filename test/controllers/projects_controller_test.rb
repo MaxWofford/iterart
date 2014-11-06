@@ -7,8 +7,9 @@ class ProjectsControllerTest < ActionController::TestCase
 
   test "should get index" do
     get :index
-    assert_response :success
-    assert_not_nil assigns(:projects)
+    # assert_response :success
+    assert_select "title", "#{@project.name} | Collaborart"
+    # assert_not_nil assigns(:projects)
   end
 
   # test "should get new" do
