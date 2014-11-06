@@ -1,0 +1,12 @@
+<h2>Comments</h2>
+<% @artwork_iteration.comments.each do |comment| %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= User.where(id: comment.user_id).first.username %>
+  </p>
+ 
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+<% end %>
