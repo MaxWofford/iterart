@@ -1,0 +1,2 @@
+module DevPostsHelper
+end

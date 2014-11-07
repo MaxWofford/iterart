@@ -1,0 +1,8 @@
+<% title "Dev Blog" %>
+<h1>dev_blog</h1>
+<% @dev_posts.each do |dev_post| %>
+  <%= link_to dev_post do %>
+    <h2><%= dev_post.title %></h2>
+    <p><%= dev_post.body %></p>
+  <% end %>
+<% end %>
