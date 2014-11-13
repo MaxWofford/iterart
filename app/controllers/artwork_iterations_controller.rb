@@ -15,9 +15,9 @@ class ArtworkIterationsController < ApplicationController
 
   # POST /artwork_iterations
   def create
-    @artwork_iteration = ArtworkIteration.new(artwork_iteration_params)
+    @artwork_iteration = ArtworkIteration.new(artwork_iteration_params.except(:project_name))
     @artwork_iteration.user_id = current_user.id
-    @artwork_iteration.project_id = params[:artwork_iteration][:project_id]
+    @artwork_iteration.project_id = Project.where(name: params[:artwork_iteration][:project_name]).last.id
 
     respond_to do |format|
       if @artwork_iteration.save
@@ -55,6 +55,6 @@ class ArtworkIterationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def artwork_iteration_params
-      params.require(:artwork_iteration).permit(:name, :description, :image, :user_id, :project_id)
+      params.require(:artwork_iteration).permit(:name, :description, :image, :user_id, :project_name)
     end
 end
