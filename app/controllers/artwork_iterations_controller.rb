@@ -1,6 +1,5 @@
 class ArtworkIterationsController < ApplicationController
   before_action :set_artwork_iteration, only: [:show, :edit, :update, :destroy]
-
   # GET /artwork_iterations/1
   def show
   end
@@ -18,6 +17,7 @@ class ArtworkIterationsController < ApplicationController
   def create
     @artwork_iteration = ArtworkIteration.new(artwork_iteration_params)
     @artwork_iteration.user_id = current_user.id
+    @artwork_iteration.project_id = params[:artwork_iteration][:project_id]
 
     respond_to do |format|
       if @artwork_iteration.save
@@ -55,6 +55,6 @@ class ArtworkIterationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def artwork_iteration_params
-      params.require(:artwork_iteration).permit(:name, :description, :image, :user_id)
+      params.require(:artwork_iteration).permit(:name, :description, :image, :user_id, :project_id)
     end
 end
