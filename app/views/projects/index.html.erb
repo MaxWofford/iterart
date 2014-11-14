@@ -2,15 +2,15 @@
 <div class="fluid-container">
   <div class="row">
     <% @projects.each do |project| %>
-      <div class="col-md-3">
       <%= link_to(project, 
         title: project.name, 
         rel: 'tooltip', relative: true) do %>
-        <%= image_tag(project.artwork_iterations.last.image.url(:medium), 
+        <div class="col-md-3 no-gutter">
+        <%= image_tag(project.artwork_iterations.last.image.url(:square), 
         alt: "#{project.artwork_iterations.last.name}",
         class: 'img-responsive') %>
+        </div>
       <% end %>
-      </div>
     <% end %>
   </div>
 </div>
