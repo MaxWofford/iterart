@@ -12,9 +12,12 @@ when "development"
     @user = User.create!(username: "user#{i}", email: "test#{i}@example.com", password: 'password', password_confirmation: 'password')
     (0..[*1..25].sample).each do |n|
       @image = File.new("#{Rails.root}/app/assets/images/seed/development/sample_image_#{[*1..9].sample}.jpg")
-      @art = ArtworkIteration.create!(user_id: @user.id, name: "Artwork #{i}-#{n}", image: @image)
+      @art = ArtworkIteration.create!(user_id:     @user.id,
+                                      name:        "Artwork #{i}-#{n}",
+                                      image:       @image)
       @project = Project.where(id: @art.project_id).first
       @project.in_progress = [true, false].sample
+      @project.name = "Project #{@project.id}"
       @project.save
     end
   end
