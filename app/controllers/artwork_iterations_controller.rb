@@ -17,8 +17,9 @@ class ArtworkIterationsController < ApplicationController
   def create
     @artwork_iteration = ArtworkIteration.new(artwork_iteration_params.except(:project_name))
     @artwork_iteration.user_id = current_user.id
-    @artwork_iteration.project_id = Project.where(name: params[:artwork_iteration][:project_name]).last.id
-
+    unless params[:artwork_iteration][:project_name].empty?
+      @artwork_iteration.project_id = Project.where(name: params[:artwork_iteration][:project_name]).last.id
+    end
     respond_to do |format|
       if @artwork_iteration.save
         format.html { redirect_to @artwork_iteration, notice: 'Artwork iteration was successfully created.' }
