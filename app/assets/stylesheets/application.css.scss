@@ -13,8 +13,11 @@
  *= require_tree .
  *= require_self
  */
+/* Bootstrap temporarily from bootswatch 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+*/
+@import "http://bootswatch.com/superhero/bootstrap.min.css";
 /* monkey patch for bootstrap's columns with images */
 .no-gutter {
     padding-right: 0;
