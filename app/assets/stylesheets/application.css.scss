@@ -10,14 +10,12 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
+ *= require layout
+ *= require scaffolds
+ *= require bootstrap
  *= require_self
  */
-/* Bootstrap temporarily from bootswatch 
-@import "bootstrap-sprockets";
-@import "bootstrap";
-*/
-@import "http://bootswatch.com/superhero/bootstrap.min.css";
+
 /* monkey patch for bootstrap's columns with images */
 .no-gutter {
     padding-right: 0;
