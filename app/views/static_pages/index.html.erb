@@ -1,3 +1,18 @@
 <% title "Home" %>
-<h1>StaticPages#index</h1>
-<p>Find me in app/views/static_pages/index.html.erb</p>
+<div class="container text-center">
+  <h1>What is Iter-art?</h1>
+  <div class="row">
+    <div class="col-md-6 column">
+      <h2>Use it for open works</h2>
+      <img src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg">
+      <h2><small>Get feedback on your <%= link_to 'works in progress', projects_path %></small></h2>
+    </div>
+    <div class="col-md-6 column">
+      <h2>Or closed projects</h2>
+      <img src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg">
+      <h2><small>Iterate through team <%= link_to 'projects', projects_path %></small></h2>
+    </div>
+  </div>
+
+  <p>Want to know more <%= link_to 'about us', about_path %>?</p>
+</div>
