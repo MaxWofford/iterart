@@ -1,8 +1,10 @@
 <% title "Dev Blog" %>
 <h1>dev_blog</h1>
+<div class="list-group">
 <% @dev_posts.each do |dev_post| %>
-  <%= link_to dev_post do %>
-    <h2><%= dev_post.title %></h2>
-    <p><%= dev_post.body %></p>
+  <%= link_to dev_post, class: 'list-group-item' do %>
+      <h2><%= dev_post.title %></h2>
+      <p><%= dev_post.body %></p>
   <% end %>
 <% end %>
+</div>
