@@ -7,8 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <p id='notice'><%= notice %></p>
   <%= render 'layouts/header' %>
+  <% if user_signed_in? %>
+  <%= render 'layouts/announcement' %>
+  <% end %>
+  <p id='notice'><%= notice %></p>
   <%= yield %>
   <%= render 'layouts/footer' %>
 </body>

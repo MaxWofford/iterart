@@ -4,6 +4,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :set_start_time
   before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_filter :last_announcement
+
+  def last_announcement
+    if DevPost.last
+      @announcement = DevPost.last
+    end
+  end
 
   def set_start_time
     @start_time = Time.now.usec
