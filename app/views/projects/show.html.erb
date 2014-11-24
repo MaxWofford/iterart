@@ -3,9 +3,11 @@
 <h1><%= @project.name %></h1>
 
 <% @project.artwork_iterations.each do |iteration| %>
-  <%= image_tag iteration.image.url %>
-  <h1><%= iteration.name %></h1>
-  <p><%= iteration.description %></p>
+  <%= link_to iteration do %>
+    <%= image_tag iteration.image.url %>
+    <h1><%= iteration.name %></h1>
+    <p><%= iteration.description %></p>
+  <% end %>
   <hr>
 <% end %>
 
