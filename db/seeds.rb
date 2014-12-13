@@ -16,10 +16,6 @@ when "development"
       @art = ArtworkIteration.create!(user_id:     @user.id,
                                       name:        "Artwork #{i}-#{n}",
                                       image:       @image)
-      @project = Project.where(id: @art.project_id).first
-      @project.in_progress = [true, false].sample
-      @project.name = "Project #{@project.id}"
-      @project.save
     end
   end
 when "production"

@@ -1,0 +1,5 @@
+<% @artwork_iterations.each do |artwork_iteration| %>
+  <%= image_tag artwork_iteration.image.url %>
+  <h1><%= artwork_iteration.name %></h1>
+  <p><%= artwork_iteration.description %></p>
+<% end %>

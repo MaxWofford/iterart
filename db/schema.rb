@@ -42,10 +42,8 @@ ActiveRecord::Schema.define(version: 20141107030534) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "user_id"
-    t.integer  "project_id"
   end
 
-  add_index "artwork_iterations", ["project_id"], name: "index_artwork_iterations_on_project_id"
   add_index "artwork_iterations", ["user_id"], name: "index_artwork_iterations_on_user_id"
 
   create_table "comments", force: true do |t|
@@ -62,16 +60,6 @@ ActiveRecord::Schema.define(version: 20141107030534) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "projects", force: true do |t|
-    t.text     "name"
-    t.boolean  "in_progress"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-  end
-
-  add_index "projects", ["user_id"], name: "index_projects_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

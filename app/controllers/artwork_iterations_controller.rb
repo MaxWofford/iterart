@@ -1,5 +1,10 @@
 class ArtworkIterationsController < ApplicationController
   before_action :set_artwork_iteration, only: [:show, :edit, :update, :destroy]
+
+  def index
+    @artwork_iterations = ArtworkIteration.all
+  end
+
   # GET /artwork_iterations/1
   def show
   end
@@ -15,11 +20,8 @@ class ArtworkIterationsController < ApplicationController
 
   # POST /artwork_iterations
   def create
-    @artwork_iteration = ArtworkIteration.new(artwork_iteration_params.except(:project_name))
+    @artwork_iteration = ArtworkIteration.new(artwork_iteration_params)
     @artwork_iteration.user_id = current_user.id
-    unless params[:artwork_iteration][:project_name].empty?
-      @artwork_iteration.project_id = Project.where(name: params[:artwork_iteration][:project_name]).last.id
-    end
     respond_to do |format|
       if @artwork_iteration.save
         format.html { redirect_to @artwork_iteration, notice: 'Artwork iteration was successfully created.' }
@@ -56,6 +58,6 @@ class ArtworkIterationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def artwork_iteration_params
-      params.require(:artwork_iteration).permit(:name, :description, :image, :user_id, :project_name)
+      params.require(:artwork_iteration).permit(:name, :description, :image, :user_id)
     end
 end

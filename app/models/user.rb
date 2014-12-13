@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :artwork_iterations
-  has_many :projects
   has_many :comments
 
   validates :username, presence: true

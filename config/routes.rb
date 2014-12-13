@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   # Dev Blog
   resources :dev_posts, only: [:index, :show]
 
-  resources :projects, only: [:index, :show, :edit]
   resources :artwork_iterations do
     resources :comments
   end

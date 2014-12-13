@@ -10,13 +10,6 @@
       </ul>
     </div>
   <% end %>
-  <% unless params['format'] %>
-  <div class="form-group">
-    <label for="artwork_iteration_project_name">Project Name</label>
-    <input class="form-control" id="artwork_iteration_project_name" name="artwork_iteration[project_name]" type="text">
-  </div>
-  <% end %>
-
   <div class="form-group">
     <%= f.label :image %>
     <%= f.file_field :image, class: "form-control" %>
