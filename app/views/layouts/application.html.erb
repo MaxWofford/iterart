@@ -8,7 +8,7 @@
 </head>
 <body>
   <%= render 'layouts/header' %>
-  <% if user_signed_in? %>
+  <% if user_signed_in? && @announcement %>
   <%= render 'layouts/announcement' %>
   <% end %>
   <p id='notice'><%= notice %></p>

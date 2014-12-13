@@ -8,6 +8,7 @@
 
 case Rails.env
 when "development"
+  DevPost.create!(title: 'Hello world!', body: 'This is the dev post\'s content')
   (0..3).each do |i|
     @user = User.create!(username: "user#{i}", email: "test#{i}@example.com", password: 'password', password_confirmation: 'password')
     (0..[*1..25].sample).each do |n|
