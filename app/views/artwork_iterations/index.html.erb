@@ -1,5 +1,11 @@
 <% @artwork_iterations.each do |artwork_iteration| %>
-  <%= image_tag artwork_iteration.image.url %>
-  <h1><%= artwork_iteration.name %></h1>
-  <p><%= artwork_iteration.description %></p>
+
+<%= link_to(artwork_iteration, title: artwork_iteration.name, rel: 'tooltip', relative: true) do %>
+  <div class="col-md-3 no-gutter">
+  <%= image_tag artwork_iteration.image.url(:square), 
+  alt: "#{artwork_iteration.name}",
+  class: 'img-responsive' %>
+  </div>
+<% end %>
+
 <% end %>

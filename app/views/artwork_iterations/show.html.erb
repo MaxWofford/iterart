@@ -1,6 +1,11 @@
-<%= image_tag @artwork_iteration.image.url %>
+<div class="text-center">
+  <%= image_tag @artwork_iteration.image.url %>
+</div>
+
+<div class="container">
 <h1><%= @artwork_iteration.name %></h1>
 <p><%= @artwork_iteration.description %></p>
+</div>
 
 <!-- User Feedback -->
 <%= render 'comments/comments' %>
