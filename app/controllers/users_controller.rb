@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find(params[:id])
+    @user = User.where(username: params[:username]).first
     @artwork_iterations = @user.artwork_iterations
   end
 end

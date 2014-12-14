@@ -32,7 +32,7 @@
           </li>
         <%else%>
           <li>
-            <%= link_to "#{current_user.username}'s profile", "/users/#{current_user.id}" %> 
+            <%= link_to "#{current_user.username}'s profile", user_page_path(current_user.username) %> 
           </li>
           <li>
             <%= link_to "#{current_user.username}'s settings", edit_user_registration_path %> 

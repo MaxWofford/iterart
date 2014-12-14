@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   devise_for :users
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  get '/users/:id' => 'users#show'
+  get '/users/:username' => 'users#show', as: :user_page
   root 'static_pages#index', as: :home
   get '/about' => 'static_pages#about', as: :about
   # The priority is based upon order of creation: first created -> highest priority.
